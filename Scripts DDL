@@ -1,0 +1,118 @@
+CREATE TABLE `login` (
+	`id_login` INT NOT NULL AUTO_INCREMENT,
+	`nome` VARCHAR(100) NOT NULL,
+	`senha` VARCHAR(50) NOT NULL,
+	`tipo` VARCHAR(11) NOT NULL,
+	PRIMARY KEY (`id_login`)
+)
+COLLATE='utf8mb4_0900_ai_ci'
+ENGINE=InnoDB;
+
+
+
+
+CREATE TABLE `autor` (
+	`id_autor` INT NOT NULL AUTO_INCREMENT,
+	`nome` VARCHAR(100) NOT NULL,
+	`id_login` INT NOT NULL,
+	PRIMARY KEY (`id_autor`),
+	INDEX `FK_autor_login` (`id_login`),
+	CONSTRAINT `FK_autor_login` FOREIGN KEY (`id_login`) REFERENCES `login` (`id_login`)
+)
+COLLATE='utf8mb4_0900_ai_ci'
+ENGINE=InnoDB;
+
+
+CREATE TABLE `editora` (
+	`id_editora` INT NOT NULL AUTO_INCREMENT,
+	`nome` VARCHAR(100) NOT NULL,
+	`id_login` INT NOT NULL,
+	PRIMARY KEY (`id_editora`),
+	INDEX `FK_editora_login` (`id_login`),
+	CONSTRAINT `FK_editora_login` FOREIGN KEY (`id_login`) REFERENCES `login` (`id_login`)
+)
+COLLATE='utf8mb4_0900_ai_ci'
+ENGINE=InnoDB;
+
+
+CREATE TABLE `livro` (
+	`id_livro` INT NOT NULL AUTO_INCREMENT,
+	`titulo` VARCHAR(100) NOT NULL,
+	`volume` INT NOT NULL,
+	`ano` CHAR(4) NOT NULL,
+	`id_login` INT NOT NULL,
+	`id_editora` INT NOT NULL,
+	`id_autor` INT NOT NULL,
+	PRIMARY KEY (`id_livro`),
+	INDEX `FK_livro_login` (`id_login`),
+	INDEX `FK_livro_editora` (`id_editora`),
+	INDEX `FK_livro_autor` (`id_autor`),
+	CONSTRAINT `FK_livro_autor` FOREIGN KEY (`id_autor`) REFERENCES `autor` (`id_autor`),
+	CONSTRAINT `FK_livro_editora` FOREIGN KEY (`id_editora`) REFERENCES `editora` (`id_editora`),
+	CONSTRAINT `FK_livro_login` FOREIGN KEY (`id_login`) REFERENCES `login` (`id_login`)
+)
+COLLATE='utf8mb4_0900_ai_ci'
+ENGINE=InnoDB;
+
+
+CREATE TABLE `funcionario` (
+	`id_funcionario` INT NOT NULL AUTO_INCREMENT,
+	`nome` VARCHAR(100) NOT NULL,
+	`senha` CHAR(50) NOT NULL,
+	`id_login` INT NOT NULL,
+	PRIMARY KEY (`id_funcionario`),
+	INDEX `FK_funcionario_login` (`id_login`),
+	CONSTRAINT `FK_funcionario_login` FOREIGN KEY (`id_login`) REFERENCES `login` (`id_login`)
+)
+COLLATE='utf8mb4_0900_ai_ci'
+ENGINE=InnoDB
+AUTO_INCREMENT=21;
+
+CREATE TABLE `leitor` (
+	`id_leitor` INT NOT NULL AUTO_INCREMENT,
+	`nome` VARCHAR(100) NOT NULL,
+	`cpf` CHAR(11) NOT NULL,
+	`data_nascimento` DATE NOT NULL,
+	`telefone` CHAR(13) NOT NULL,
+	`email` VARCHAR(100) NOT NULL,
+	`rua` VARCHAR(100) NOT NULL,
+	`numero` VARCHAR(10) NOT NULL,
+	`bairro` VARCHAR(50) NOT NULL,
+	`cidade` VARCHAR(50) NOT NULL,
+	`cep` CHAR(8) NOT NULL,
+	`uf` CHAR(2) NOT NULL,
+	`id_login` INT NOT NULL,
+	PRIMARY KEY (`id_leitor`),
+	INDEX `FK_leitor_login` (`id_login`),
+	CONSTRAINT `FK_leitor_login` FOREIGN KEY (`id_login`) REFERENCES `login` (`id_login`)
+)
+COLLATE='utf8mb4_0900_ai_ci'
+ENGINE=InnoDB;
+
+
+CREATE TABLE `emprestimo` (
+	`id_emprestimo` INT NOT NULL AUTO_INCREMENT,
+	`data_emprestimo` DATE NOT NULL,
+	`data_devolucao` DATE NOT NULL,
+	`id_funcionario` INT NOT NULL,
+	`id_leitor` INT NOT NULL,
+	PRIMARY KEY (`id_emprestimo`),
+	INDEX `id_funcionario` (`id_funcionario`),
+	INDEX `id_leitor` (`id_leitor`),
+	CONSTRAINT `FK_emprestimo_funcionario` FOREIGN KEY (`id_funcionario`) REFERENCES `funcionario` (`id_funcionario`),
+	CONSTRAINT `FK_emprestimo_leitor` FOREIGN KEY (`id_leitor`) REFERENCES `leitor` (`id_leitor`)
+)
+COLLATE='utf8mb4_0900_ai_ci'
+ENGINE=InnoDB;
+
+
+CREATE TABLE `emprestimo_livro` (
+	`id_emprestimo` INT NOT NULL AUTO_INCREMENT,
+	`id_livro` INT NOT NULL,
+	INDEX `FK_emprestimo_livro_emprestimo` (`id_emprestimo`),
+	INDEX `FK_emprestimo_livro_livro` (`id_livro`),
+	CONSTRAINT `FK_emprestimo_livro_emprestimo` FOREIGN KEY (`id_emprestimo`) REFERENCES `emprestimo` (`id_emprestimo`),
+	CONSTRAINT `FK_emprestimo_livro_livro` FOREIGN KEY (`id_livro`) REFERENCES `livro` (`id_livro`)
+)
+COLLATE='utf8mb4_0900_ai_ci'
+ENGINE=InnoDB;
