@@ -1,0 +1,31 @@
+/*1-Listar todos os dados dos livros cadastrados, ordenando pelo seu título. */
+
+SELECT * FROM livro
+ORDER BY titulo
+
+/* 2 - Listar o funcionário de código 25 e o nome do administrador que o cadastrou.*/
+
+SELECT funcionario.id_funcionario, funcionario.nome AS Nome_Funcionario,login.nome AS Nome_admin, login.tipo
+FROM funcionario, login
+WHERE login.tipo = 'admin' AND funcionario.id_funcionario = 25
+
+
+/*3 - Informar a quantidade de empréstimos feitos por nome de funcionários, realizados no mês de agosto de 2019.*/
+
+SELECT f.nome AS Nome_Funcionario, COUNT(*) Quant_Emprestimo
+FROM emprestimo e, funcionario f
+WHERE e.id_funcionario = f.id_funcionario
+AND e.data_emprestimo BETWEEN '2019-08-01' AND '2019-08-31'
+GROUP BY f.nome
+
+/*4 - Listar as quantidades de livros por autor (nome). */
+
+SELECT nome AS Nome_autor, COUNT(*) Quant_Livro
+FROM autor, livro
+WHERE livro.id_autor = autor.id_autor
+GROUP BY autor.nome
+
+/*5 - Listar os nomes das editoras em ordem crescente.*/
+
+SELECT nome as Nome_editora_Ordem_Crescente FROM editora
+ORDER BY nome
