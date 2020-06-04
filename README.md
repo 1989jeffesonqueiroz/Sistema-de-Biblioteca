@@ -88,11 +88,28 @@ emprestimo_livro (id_emprestimo, id_livro)
 |     ID        |Integer       |     Sim     | PK       |Chave Primária da tabela, Auto_Increment                |
 |    Título      |Varchar, 100  |     Sim     |         |Nome do livro                                           |
 |    Volume      |Varchar,50    |     Sim     |          |Senha do usuário que está logando                       |
-|    Ano      |Varchar       |     Sim     |          |Contém os dados se a conta logada é Admin ou Funcionário|
-|Id_login     |Integer|Sim|FK|Referencia à tabela login|
+|    Ano      |Varchar          |     Sim     |          |Contém os dados se a conta logada é Admin ou Funcionário|
+|Id_login     |Integer|          Sim          |FK        |Referencia à tabela login|
+|Id_editora   |Integer           |Sim         |          |           Referência à tabela editora|
+|Id_autor   |Integer           |Sim         |          |           Referência à tabela autor|
 
+##### Tabela Usuário
 
+|Identificador  |Tamanho       |Obrigatório  |Chave     |Descrição                                               |
+|:-------------:|:------------:|:-----------:|:--------:|:-------------------------------------------------------|
+|     ID        |Integer       |     Sim     | PK       |Chave Primária da tabela, Auto_Increment                |
+|    Nome       |String,100    |     Sim     |          |Nome do usuário                                         |
+|    senha       |String,50    |     Sim     |          |Senha do usuário                                        |
+|    id_login   |Integer       |     Sim     |          |Referência à tabela logi                                |
 
+##### Tabela Empréstimo
+
+|Identificador  |Tamanho       |Obrigatório  |Chave     |Descrição                                               |
+|:-------------:|:------------:|:-----------:|:--------:|:-------------------------------------------------------|
+|     ID        |Integer       |     Sim     | PK       |Chave Primária da tabela, Auto_Increment                |
+| Data_emprestimo |Date        |     Sim     |          |Data da locação do(s) Livro(s)                          |
+| Data_devolucao  |Date        |     Sim     |          |Data da devolução do(s) Livro(s)                        |
+|Id_funcionario   | Integer    |     Sim     |       FK | Referência à tabela funcionário                        |
 
 ## Sistema de Biblioteca
 
