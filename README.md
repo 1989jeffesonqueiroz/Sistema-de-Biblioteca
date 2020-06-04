@@ -345,6 +345,12 @@ insert into emprestimo_livro (id_emprestimo, id_livro) values (4,1);
 insert into emprestimo_livro (id_emprestimo, id_livro) values (5,2);
 ```
 
+##### Diagrama de Classes
+
+###### Ferramenta utilizada: StarUML
+
+![UML](https://github.com/1989jeffesonqueiroz/Sistema-de-Biblioteca/blob/master/imagens/uml.png)
+
 
 ## Sistema de Biblioteca
 
