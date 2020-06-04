@@ -100,7 +100,7 @@ emprestimo_livro (id_emprestimo, id_livro)
 |     ID        |Integer       |     Sim     | PK       |Chave Primária da tabela, Auto_Increment                |
 |    Nome       |String,100    |     Sim     |          |Nome do usuário                                         |
 |    senha       |String,50    |     Sim     |          |Senha do usuário                                        |
-|    id_login   |Integer       |     Sim     |          |Referência à tabela logi                                |
+|    id_login   |Integer       |     Sim     |          |Referência à tabela login                                |
 
 ##### Tabela Empréstimo
 
@@ -129,7 +129,7 @@ emprestimo_livro (id_emprestimo, id_livro)
 |     Cep       |Char,8        |     Sim     |          |CEP da rua do Leitor                                    |
 |     Uf        |Char,2        |     Sim     |          |Estado onde reside o leitor                             |
 |     Cep       |Char,8        |     Sim     |          |CEP da rua do Leitor                                    |
-|    id_login   |Integer       |     Sim     |          |Referência à tabela logi                                |
+|    id_login   |Integer       |     Sim     |          |Referência à tabela login                                |
 
 ##### Tabela Empréstimo_livro
 
@@ -137,9 +137,15 @@ emprestimo_livro (id_emprestimo, id_livro)
 |:-------------:|:------------:|:-----------:|:--------:|:-------------------------------------------------------|
 |     ID        |Integer       |     Sim     | PK       |Chave Primária da tabela, Auto_Increment                |
 |  Id_editor    |Integer       |     Sim     | PK       |Referencia à tabela empréstimo, chave primária composta |
-|    id_login   |Integer       |     Sim     |          |Referência à tabela logi                                |
+|    id_login   |Integer       |     Sim     |          |Referência à tabela login                               |
 
+##### Tabela Editora
 
+|Identificador  |Tamanho       |Obrigatório  |Chave     |Descrição                                               |
+|:-------------:|:------------:|:-----------:|:--------:|:-------------------------------------------------------|
+|     ID        |Integer       |     Sim     | PK       |Chave Primária da tabela, Auto_Increment                |
+|     Nome      |Varchar,100   |     Sim     |          |Nome da Editora                                         |
+|    id_login   |Integer       |     Sim     |          |Referência à tabela login                               |
 
 
 
