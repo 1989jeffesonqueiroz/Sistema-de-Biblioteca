@@ -345,11 +345,37 @@ insert into emprestimo_livro (id_emprestimo, id_livro) values (4,1);
 insert into emprestimo_livro (id_emprestimo, id_livro) values (5,2);
 ```
 
+### Relatórios do Banco de dados
+
+##### 1 - Listar todos os dados dos livros cadastrados, ordenando pelo seu título.
+
+```
+SELECT * FROM livro
+ORDER BY titulo
+```
+
+##### 2 - Listar o funcionário de código 25 e o nome do administrador que o cadastrou
+
+```
+SELECT funcionario.id_funcionario, funcionario.nome AS Nome_Funcionario,login.nome AS Nome_admin, login.tipo
+FROM funcionario, login
+WHERE login.tipo = 'admin' AND funcionario.id_funcionario = 25
+```
+
+##### 3-
+
+
+
 ##### Diagrama de Classes
 
 ###### Ferramenta utilizada: StarUML
 
 ![UML](https://github.com/1989jeffesonqueiroz/Sistema-de-Biblioteca/blob/master/imagens/uml.png)
+
+
+# Arquitetura do Software
+
+### 
 
 
 ## Sistema de Biblioteca
