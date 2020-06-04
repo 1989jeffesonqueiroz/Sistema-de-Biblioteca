@@ -147,7 +147,22 @@ emprestimo_livro (id_emprestimo, id_livro)
 |     Nome      |Varchar,100   |     Sim     |          |Nome da Editora                                         |
 |    id_login   |Integer       |     Sim     |          |Referência à tabela login                               |
 
+## Modelo Físico
 
+### Scripts DDL do banco de dados
+
+##### Tabela Login
+```
+CREATE TABLE `login` (
+`id_login` INT NOT NULL AUTO_INCREMENT,
+`nome` VARCHAR(100) NOT NULL,
+`senha` VARCHAR(50) NOT NULL,
+`tipo` VARCHAR(11) NOT NULL,
+PRIMARY KEY (`id_login`)
+)
+COLLATE='utf8mb4_0900_ai_ci'
+ENGINE=InnoDB;
+```
 
 ## Sistema de Biblioteca
 
