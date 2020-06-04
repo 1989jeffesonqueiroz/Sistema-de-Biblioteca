@@ -292,6 +292,52 @@ COLLATE='utf8mb4_0900_ai_ci'
 ENGINE=InnoDB;
 ```
 
+## Comandos Insert
+
+```
+insert into login (nome, senha, tipo) values ('Otávio','tico3339','Funcionario');
+insert into login (nome, senha, tipo) values ('Ana Luiza','admin789','Admin');
+insert into login (nome, senha, tipo) values ('Dory','abc321','Funcionario');
+insert into login (nome, senha, tipo) values ('Rosi','dory123','Funcionario');
+insert into login (nome, senha, tipo) values ('Dell','123123','Funcionario');
+insert into login (nome, senha, tipo) values ('Jefferson','del4321','Funcionario');
+insert into autor (nome, id_login) values ('Susan Cain',2);
+insert into autor (nome, id_login) values ('Roger S. Pressman',2);
+insert into autor (nome, id_login) values ('Viktor Mayer-Schonberger',2);
+insert into autor (nome, id_login) values ('Paul Barry',2);
+insert into autor (nome, id_login) values ('Richard Hunter',2);
+insert into editora (nome, id_login) values ('Sextante',2);
+insert into editora (nome, id_login) values ('AMGH',2);
+insert into editora (nome, id_login) values ('Elsevier',2);
+insert into editora (nome, id_login) values ('Alta Books',2);
+insert into editora (nome, id_login) values ('MBOOKS',2);
+insert into funcionario (nome, senha, id_login) values ('Jefferson','acb123',2);
+insert into funcionario (nome, senha, id_login) values ('Ana','123abc',2);
+insert into funcionario (nome, senha, id_login) values ('Dory','dory123',2);
+insert into funcionario (nome, senha, id_login) values ('Rose','rosi4321',2);
+insert into funcionario (nome, senha, id_login) values ('Dell','Dell789',2);
+insert into leitor (nome, cpf, data_nascimento, telefone, email, rua, numero, bairro, cidade, cep, uf, id_login) VALUES ('Miguel','47957368042',"1970-11-06",'(71)999910300','miguel@gmail.com','Avenida Rosa','402','Alto das Pombas','Recife','40226175','BA',2);
+insert into leitor (nome, cpf, data_nascimento, telefone, email, rua, numero, bairro, cidade, cep, uf, id_login) VALUES ('Arthur','68166208016',"1959-02-08",'(92)999983558','Arthur@gmail.com','Rua Independência','690','Alvorada','Olinda','69043020','AM',2);
+insert into leitor (nome, cpf, data_nascimento, telefone, email, rua, numero, bairro, cidade, cep, uf, id_login) VALUES ('Davi','96790166092',"1961-10-08",'(41)999917759','Davi@gmail.com','Rua Hércules Accorsi','860','Cafezal','Recife','86045270','PR',2);
+insert into leitor (nome, cpf, data_nascimento, telefone, email, rua, numero, bairro, cidade, cep, uf, id_login) VALUES ('Bernardo','50224973010',"1965-09-20",'(62)999368617','Bernardo@gmail.com','Rua 86A','740','Setor Sul','Cabo','74083340','GO',2);
+insert into leitor (nome, cpf, data_nascimento, telefone, email, rua, numero, bairro, cidade, cep, uf, id_login) VALUES('Murilo','77913644095',"1966-10-29",'(21)999366299','Murilo@gmail.com','Rua Projetada A','230','Guaratiba','Camaragibe','23031195','RJ',2);
+insert into livro (titulo, volume, ano, id_login, id_editora, id_autor) values ('Redes de Computadores',2,'2011',2,1,5);
+insert into livro (titulo, volume, ano, id_login, id_editora, id_autor) values ('Criptografia Para Iniciantes',1,'2012',2,2,4);
+insert into livro (titulo, volume, ano, id_login, id_editora, id_autor) values ('Use a Cabeça! Python',1,'2018',2,3,3);
+insert into livro (titulo, volume, ano, id_login, id_editora, id_autor) values ('Use a Cabeça!: Java ',1,'2007',2,4,3);
+insert into livro (titulo, volume, ano, id_login, id_editora, id_autor) values ('Java Para Leigos',1,'2013',2,5,1);
+insert into emprestimo (data_emprestimo, data_devolucao, id_funcionario, id_leitor) VALUES ("2019-08-01","2019-08-08",25,5);
+insert into emprestimo (data_emprestimo, data_devolucao, id_funcionario, id_leitor) VALUES ("2019-08-03","2019-08-10",25,4);
+insert into emprestimo (data_emprestimo, data_devolucao, id_funcionario, id_leitor) VALUES ("2019-08-12","2019-08-19",21,3);
+insert into emprestimo (data_emprestimo, data_devolucao, id_funcionario, id_leitor) VALUES ("2020-04-01","2020-04-08",22,2);
+insert into emprestimo (data_emprestimo, data_devolucao, id_funcionario, id_leitor) VALUES ("2020-04-02","2020-04-09",24,1);
+insert into emprestimo_livro (id_emprestimo, id_livro) values (1,5);
+insert into emprestimo_livro (id_emprestimo, id_livro) values (2,4);
+insert into emprestimo_livro (id_emprestimo, id_livro) values (3,3);
+insert into emprestimo_livro (id_emprestimo, id_livro) values (4,1);
+insert into emprestimo_livro (id_emprestimo, id_livro) values (5,2);
+```
+
 
 ## Sistema de Biblioteca
 
