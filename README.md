@@ -110,6 +110,38 @@ emprestimo_livro (id_emprestimo, id_livro)
 | Data_emprestimo |Date        |     Sim     |          |Data da locação do(s) Livro(s)                          |
 | Data_devolucao  |Date        |     Sim     |          |Data da devolução do(s) Livro(s)                        |
 |Id_funcionario   | Integer    |     Sim     |       FK | Referência à tabela funcionário                        |
+|Id_leitor        | Integer    |     Sim     |       FK | Referência à tabela leitor                             |
+
+##### Tabela Leitor
+
+|Identificador  |Tamanho       |Obrigatório  |Chave     |Descrição                                               |
+|:-------------:|:------------:|:-----------:|:--------:|:-------------------------------------------------------|
+|     ID        |Integer       |     Sim     | PK       |Chave Primária da tabela, Auto_Increment                |
+|     Nome      |Varchar,100   |     Sim     |          |Nome do leitor                                          |
+|     cpf       |Char,11       |     Sim     |          |CPF do leitor                                           |
+|     Data_nascimeto|Date      |     Sim     |          |Data de nascimento do leitor                            |
+|     Telefone  |Char,13       |     Sim     |          |Telefone do Leitor                                      |
+|     Email     |Varchar,100   |     Sim     |          |E-mail do Leitor                                        |
+|     Rua       |Varchar,100   |     Sim     |          |Rua do Leitor                                           |
+|     Numero    |Varchar,10    |     Sim     |          |Número da residência do leitor                          |
+|     Bairro    |Varchar,50    |     Sim     |          |Bairro onde reside o leitor                             |
+|     Cidade    |Varchar,50    |     Sim     |          |Cidade onde reside o leitor                             |
+|     Cep       |Char,8        |     Sim     |          |CEP da rua do Leitor                                    |
+|     Uf        |Char,2        |     Sim     |          |Estado onde reside o leitor                             |
+|     Cep       |Char,8        |     Sim     |          |CEP da rua do Leitor                                    |
+|    id_login   |Integer       |     Sim     |          |Referência à tabela logi                                |
+
+##### Tabela Empréstimo_livro
+
+|Identificador  |Tamanho       |Obrigatório  |Chave     |Descrição                                               |
+|:-------------:|:------------:|:-----------:|:--------:|:-------------------------------------------------------|
+|     ID        |Integer       |     Sim     | PK       |Chave Primária da tabela, Auto_Increment                |
+|  Id_editor    |Integer       |     Sim     | PK       |Referencia à tabela empréstimo, chave primária composta |
+|    id_login   |Integer       |     Sim     |          |Referência à tabela logi                                |
+
+
+
+
 
 ## Sistema de Biblioteca
 
