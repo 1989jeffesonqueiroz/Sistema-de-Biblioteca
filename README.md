@@ -404,19 +404,40 @@ ORDER BY nome
 O MVC (Model-View-Controller) consiste em um padrão de arquitetura de software que realiza a separação da aplicação em três camadas distintas para melhor organização do projeto facilitando futuras manutenções e reaproveitamento de códigos. As camadas são:
 
 * **Model:** camada de manipulação dos dados, parte lógica da aplicação e é a ponte entre as camadas view e controller.
-* **View:** camada de interação com o usuário, o view pode ser qualquer saída de representação dos dados, como uma tabela ou um diagrama. É onde os dados solicitados do Model são exibidos.
+* **View:** camada de interação com o usuário, o *view* pode ser qualquer saída de representação dos dados, como uma tabela ou um diagrama. É onde os dados solicitados do *Model* são exibidos.
 * **Controller:** Faz a medição da entrada e saída, comandando a visão e o modelo para serem alterados de forma apropriada conforme o usuário solicitou.
 
 A camada View contém as seguntes telas:
 
-* Tela Principal              - Inclusão de Leitor          * Alteração de Leitor
-* Consulta de Leitor          - Exclusão de Leitor          * Inclusão de Livro
-* Alteração de Livro          - Consulta de Livro           * Exclusão de Livro
-* Inclusão de Autor           - Alteração de Autor          * Consulta de Autor
-* Exclusão de Autor           - Inclusão de Editora         * Alteração de Editora
-* Consulta de Editora         - Exclusão de Editora         * Cadastrar Usuário
-* Excluir Usuário             - Fazer Empréstimo            * Consultar Empréstimo
-* Excluir Empréstimo          - Fazer Devolução             * Consultar Devolução 
+* Login
+* Tela Principal
+* Inclusão de Leitor
+* Alteração de Leitor
+* Consulta de Leitor
+* Exclusão de Leitor
+* Inclusão de Livro
+* Alteração de Livro
+* Consulta de Livro
+* Exclusão de Livro
+* Inclusão de Autor
+* Alteração de Autor
+* Consulta de Autor
+* Exclusão de Autor
+* Inclusão de Editora
+* Alteração de Editora
+* Consulta de Editora
+* Exclusão de Editora
+* Cadastrar Usuário
+* Excluir Usuário
+* Fazer Empréstimo
+* Consultar Empréstimo
+* Excluir Empréstimo
+* Fazer Devolução
+* Consultar Devolução
+
+## Protótipo
+
+###Telas e Classes da camada View
 
 
 
