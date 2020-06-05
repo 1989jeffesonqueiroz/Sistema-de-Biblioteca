@@ -409,14 +409,14 @@ O MVC (Model-View-Controller) consiste em um padrão de arquitetura de software 
 
 A camada View contém as seguntes telas:
 
-** * Tela Principal              Inclusão de Leitor          Alteração de Leitor
-Consulta de Leitor          Exclusão de Leitor          Inclusão de Livro
-Alteração de Livro          Consulta de Livro           Exclusão de Livro
-Inclusão de Autor           Alteração de Autor          Consulta de Autor
-Exclusão de Autor           Inclusão de Editora         Alteração de Editora
-Consulta de Editora         Exclusão de Editora         Cadastrar Usuário
-Excluir Usuário             Fazer Empréstimo            Consultar Empréstimo
-Excluir Empréstimo          Fazer Devolução             Consultar Devolução 
+* Tela Principal              * Inclusão de Leitor          * Alteração de Leitor
+* Consulta de Leitor          * Exclusão de Leitor          * Inclusão de Livro
+* Alteração de Livro          * Consulta de Livro           * Exclusão de Livro
+* Inclusão de Autor           * Alteração de Autor          * Consulta de Autor
+* Exclusão de Autor           * Inclusão de Editora         * Alteração de Editora
+* Consulta de Editora         * Exclusão de Editora         * Cadastrar Usuário
+* Excluir Usuário             * Fazer Empréstimo            * Consultar Empréstimo
+* Excluir Empréstimo          * Fazer Devolução             * Consultar Devolução 
 
 
 
