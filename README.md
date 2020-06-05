@@ -437,28 +437,25 @@ A camada View contém as seguntes telas:
 
 ## Protótipo
 
-###Telas e Classes da camada View
+### Telas e Classes da camada View
 
 
-
-
-## Sistema de Biblioteca
-
-O presente projeto é voltado para a área educacional, em específico para as bibliotecas. O intuito é proporcionar o gerenciamento do empréstimo de livros de forma similar ao software PERGAMUM já existente nas universidades públicas do estado.
-
-## Descrição do Sistema.
-
-O presente projeto é voltado para a área educacional, em específico para as bibliotecas. O intuito é proporcionar o gerenciamento do empréstimo de livros de forma similar ao software PERGAMUM já existente nas universidades públicas do estado.
-
-## Sobre o sistema
-O sistema de controle de biblioteca tem como funcionalidades: cadastrar, consultar, editar e excluir: leitores, livros, autores, editoras, funcionários, extrair relatórios, determinar prazo de devolução e aplicar multa em caso de descumprimento da data limite.
-
-# Camada View
-
-## Login
+#### Login
 
 ![Tela de Login](https://github.com/1989jeffesonqueiroz/Sistema-de-Biblioteca-V4/blob/master/imagens/login.png)
 
 A tela é a de Login do sistema, cuja a função é autenticar o usuário. Uma vez autenticado, ele tem permissão para acessar o sistema.
+
+#### Principal
+
+![Tela Principal](https://github.com/1989jeffesonqueiroz/Sistema-de-Biblioteca/blob/master/imagens/tela%20pincipal%20-%20tela%202.png)
+
+A tela principal é a que tem todas as funcionalidades do sistema através da barra superior do Menu.
+
+#### Inclusão de Leitor
+
+![Inserir Leitor](https://github.com/1989jeffesonqueiroz/Sistema-de-Biblioteca/blob/master/imagens/cadastro%20leitor%20-%20tela%203.png)
+
+Responsável por manter um cadastro de pessoa física, possibilitando através do cadastro identificar o leitor no momento do empréstimo.
 
 
