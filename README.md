@@ -362,9 +362,33 @@ FROM funcionario, login
 WHERE login.tipo = 'admin' AND funcionario.id_funcionario = 25
 ```
 
-##### 3-
+##### 3- Informar a quantidade de empréstimos feitos por nome de funcionários, realizados no mês de agosto de 2019.
 
+```
+SELECT f.nome AS Nome_Funcionario, COUNT(*) Quant_Emprestimo
+FROM emprestimo e, funcionario f
+WHERE e.id_funcionario = f.id_funcionario
+AND e.data_emprestimo BETWEEN '2019-08-01' AND '2019-08-31'
+GROUP BY f.nome
+```
 
+##### 4 - Listar as quantidades de livros por autor (nome).
+
+```
+SELECT nome AS Nome_autor, COUNT(*) Quant_Livro
+FROM autor, livro
+WHERE livro.id_autor = autor.id_autor
+GROUP BY autor.nome
+```
+
+##### 5 - Listar os nomes das editoras em ordem crescente.
+
+```
+SELECT nome as Nome_editora_Ordem_Crescente FROM editora
+ORDER BY nome
+```
+
+## Análise e Desing.
 
 ##### Diagrama de Classes
 
@@ -373,9 +397,17 @@ WHERE login.tipo = 'admin' AND funcionario.id_funcionario = 25
 ![UML](https://github.com/1989jeffesonqueiroz/Sistema-de-Biblioteca/blob/master/imagens/uml.png)
 
 
-# Arquitetura do Software
+## Arquitetura do Software
 
-### 
+### Padrão do Projeto.
+
+O MVC (Model-View-Controller) consiste em um padrão de arquitetura de software que realiza a separação da aplicação em três camadas distintas para melhor organização do projeto facilitando futuras manutenções e reaproveitamento de códigos. As camadas são:
+
+* **Model:** camada de manipulação dos dados, parte lógica da aplicação e é a ponte entre as camadas view e controller.
+* **View:** camada de interação com o usuário, o view pode ser qualquer saída de representação dos dados, como uma tabela ou um diagrama. É onde os dados solicitados do Model são exibidos.
+* **Controller:** Faz a medição da entrada e saída, comandando a visão e o modelo para serem alterados de forma apropriada conforme o usuário solicitou.
+
+A camada View contém as seguntes telas:
 
 
 ## Sistema de Biblioteca
