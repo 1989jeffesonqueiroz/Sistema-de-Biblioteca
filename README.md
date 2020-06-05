@@ -452,10 +452,25 @@ A tela é a de Login do sistema, cuja a função é autenticar o usuário. Uma v
 
 A tela principal é a que tem todas as funcionalidades do sistema através da barra superior do Menu.
 
-#### Inclusão de Leitor
+#### Cadastro de Leitor
 
 ![Inserir Leitor](https://github.com/1989jeffesonqueiroz/Sistema-de-Biblioteca/blob/master/imagens/cadastro%20leitor%20-%20tela%203.png)
 
 Responsável por manter um cadastro de pessoa física, possibilitando através do cadastro identificar o leitor no momento do empréstimo.
 
+#### Editar Leitor
+
+![Editar Leitor](https://github.com/1989jeffesonqueiroz/Sistema-de-Biblioteca/blob/master/imagens/editar%20leitor.png)
+
+Responsável por editar um cadastro de pessoa física, possibilitando, através da edição, a correção de alguns erros nos dados cadastrados. Para realizar a alteração é necessário, antes, realizar a pesquisa do livro. Ao clicar na Lupa, o usuário é direcionado para outra tela de pesquisa. Nela, ao selecionar o leitor e clicar em OK, volta para a tela anterior com os dados inseridos, para que seja realizada a alteração.
+
+#### Consultar Leitor
+
+![Consultar Leitor](https://github.com/1989jeffesonqueiroz/Sistema-de-Biblioteca/blob/master/imagens/consultar%20leitor.png)
+
+Responsável por consultar um cadastro de pessoa física, possibilitando, através da consulta, verificar algum erro de cadastro e realizar a correção na tela de alteração de cadastro. Para realizar a alteração é necessário, antes, realizar a pesquisa do Leitor. Ao clicar na Lupa, o usuário é direcionado para outra tela de pesquisa. Nela, ao selecionar o leitor e clicar em OK, volta para a tela anterior com os dados inseridos, para que seja realizada a alteração.
+
+#### Excluir Leitor
+
+![]()
 
