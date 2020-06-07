@@ -990,7 +990,7 @@ public class Usuario {
         this.tipo = tipo;
     }    
 }
-```
+
 
 
 
