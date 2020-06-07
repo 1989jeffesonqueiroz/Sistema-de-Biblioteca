@@ -472,6 +472,545 @@ Responsável por consultar um cadastro de pessoa física, possibilitando, atrav�
 
 #### Excluir Leitor
 
-![]()
+![Excluir Leitor](https://github.com/1989jeffesonqueiroz/Sistema-de-Biblioteca/blob/master/imagens/excluir%20letitor.png)
 
-> Pardon my French
+Responsável por excluir o cadastro de um leitor.
+
+#### Incluir Livro
+
+![Incluir Livro](https://github.com/1989jeffesonqueiroz/Sistema-de-Biblioteca/blob/master/imagens/incluir%20livro.png)
+
+Responsável pelo cadastro dos livros a serem utilizados no empréstimo solicitado pelo leitor.
+
+#### Alterar Livro
+
+![Alterar Livro](https://github.com/1989jeffesonqueiroz/Sistema-de-Biblioteca/blob/master/imagens/altera%C3%A7%C3%A3o%20de%20livro.png)
+
+Responsável pela alteração dos dados dos livros cadastrados a serem utilizados no empréstimo solicitado pelo leitor.
+Para realizar a alteração é necessário, antes, realizar a pesquisa do livro. Ao clicar na Lupa, o usuário é direcionado para outra tela de pesquisa. Nela, ao selecionar o livro e clicar em OK, volta para a tela anterior com os dados inseridos, para que seja realizada a alteração.
+
+#### Consultar Livro
+
+![Consultar Livro](https://github.com/1989jeffesonqueiroz/Sistema-de-Biblioteca/blob/master/imagens/consultar%20livrp.png)
+
+Responsável por realizar consulta de livros cadastrados no banco de dados.
+
+#### Excluir Livro
+
+![Excluir Livro](https://github.com/1989jeffesonqueiroz/Sistema-de-Biblioteca/blob/master/imagens/excluir%20livro.png)
+
+Responsável por realizar a exclusão dos livros cadastrados no banco de dados.
+
+#### Incluir Autor
+
+![Incluir Autor](https://github.com/1989jeffesonqueiroz/Sistema-de-Biblioteca/blob/master/imagens/incluir%20autor.png)
+
+Responsável pelo cadastro dos autores no banco de dados, no qual serão selecionados quando houver uma inclusão de livro.
+
+#### Alterar Autor
+
+![Alterar Autor](https://github.com/1989jeffesonqueiroz/Sistema-de-Biblioteca/blob/master/imagens/altera%C3%A7%C3%A3o%20de%20autor.png)
+
+Responsável pela alteração dos dados dos autores cadastrados que serão utilizados quando houver uma inclusão de livro.
+
+Para realizar a alteração, é necessário, antes, realizar a pesquisa do autor. Ao clicar na lupa, o usuário é direcionado para outra tela de pesquisa. Após selecionar o autor e clicar em OK, volta para a tela anterior com os dados inseridos para realizar a alteração.
+
+#### Consultar Autor
+
+![Consultar Autor](https://github.com/1989jeffesonqueiroz/Sistema-de-Biblioteca/blob/master/imagens/consultar%20autor.png)
+
+Responsável por realizar consulta de autores cadastrados no banco de dados.
+
+#### Excluir Autor
+
+![Excluir autor](https://github.com/1989jeffesonqueiroz/Sistema-de-Biblioteca/blob/master/imagens/excluir%20autor.png)
+
+Responsável por realizar a exclusão dos autores cadastrados no banco de dados.
+
+#### Cadastrar Editora
+
+![Cadastrar Editora](https://github.com/1989jeffesonqueiroz/Sistema-de-Biblioteca/blob/master/imagens/cadastrar%20editora.png)
+
+Responsável pelo cadastro da editora no banco de dados, no qual serão selecionados quando houver uma inclusão de livro.
+
+#### Alterar Editora
+
+![Alterar Editora](https://github.com/1989jeffesonqueiroz/Sistema-de-Biblioteca/blob/master/imagens/editar%20editora.png)
+
+Responsável pela alteração dos dados das editoras cadastradas que serão utilizadas quando houver uma inclusão de livro.
+
+Para realizar a alteração, é necessário, antes, realizar a pesquisa da editora. Ao clicar na lupa, o usuário é direcionado para outra tela de pesquisa. Após selecionar a editora e clicar em OK, volta para a tela anterior com os dados inseridos para realizar a alteração.
+
+#### Consultar Editora
+
+![Consultar Editora](https://github.com/1989jeffesonqueiroz/Sistema-de-Biblioteca/blob/master/imagens/consultar%20editora.png)
+
+Responsável por realizar consulta de autor cadastrado no banco de dados.
+
+#### Excluir Editora
+
+![Excluir Editora](https://github.com/1989jeffesonqueiroz/Sistema-de-Biblioteca/blob/master/imagens/excluir%20editora.png)
+
+Responsável por realizar a exclusão da editora que está cadastrada no banco de dados.
+
+#### Cadastrar Usuário
+
+![Cadastrar Usuário](https://github.com/1989jeffesonqueiroz/Sistema-de-Biblioteca/blob/master/imagens/cadastro%20usuario.png)
+
+Responsável por realizar o cadastro de usuários que poderão ter acesso ao sistema. Estes podem ser do tipo Adm ou funcionário.
+
+#### Excluir Usuário
+
+![Excluir Usuário](https://github.com/1989jeffesonqueiroz/Sistema-de-Biblioteca/blob/master/imagens/excluir%20usuario.png)
+
+Responsável por realizar a exclusão dos usuários (Adm ou funcionário) que poderão ter acesso ao sistema.
+
+#### Empréstimo
+
+![Empréstimo](https://github.com/1989jeffesonqueiroz/Sistema-de-Biblioteca/blob/master/imagens/emprestimo.png)
+
+Responsável por realizar o empréstimo dos livros previamente cadastrados no banco de dados do sistema.
+
+#### Consultar Emréstimo
+
+![Consultar Emréstimo](https://github.com/1989jeffesonqueiroz/Sistema-de-Biblioteca/blob/master/imagens/consultar%20emprestimo.png)
+
+Responsável por realizar consulta de empréstimos cadastrados no banco de dados do sistema.
+
+#### Excluir Empréstimo
+
+![Excluir Empréstimo](https://github.com/1989jeffesonqueiroz/Sistema-de-Biblioteca/blob/master/imagens/excluir%20emprestimo.png)
+
+Responsável por realizar a exclusão dos empréstimos cadastrados no banco de dados.
+
+#### Devolução
+
+![Devolução](https://github.com/1989jeffesonqueiroz/Sistema-de-Biblioteca/blob/master/imagens/devolucao.png)
+
+Responsável por realizar a devolução do livro emprestado ao leitor anteriormente.
+
+#### Consultar Devolução
+
+![Consultar Devolução](https://github.com/1989jeffesonqueiroz/Sistema-de-Biblioteca/blob/master/imagens/consultar%20devolucao.png)
+
+Responsável por realizar consultas de devoluções cadastradas no banco de dados.
+
+### Classes da camada Controller
+
+#### Autor
+
+```
+package model;
+
+public class Autor {
+    
+    private int id_autor;
+    private String nome;
+    private int id_login;
+    
+    public Autor(){
+        
+    }
+
+    public Autor(int id_autor, String nome, int id_login) {
+        this.id_autor = id_autor;
+        this.nome = nome;
+        this.id_login = id_login;
+    }
+
+    public int getId_autor() {
+        return id_autor;
+    }
+
+    public void setId_autor(int id_autor) {
+        this.id_autor = id_autor;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public int getId_login() {
+        return id_login;
+    }
+
+    public void setId_login(int id_login) {
+        this.id_login = id_login;
+    }   
+}
+```
+
+#### Editora
+
+```
+package model;
+
+public class Editora {
+    
+    private String nome;
+    private int id_editora;
+    
+    public Editora(){
+        
+    }
+
+    public int getId_editora() {
+        return id_editora;
+    }
+
+    public void setId_editora(int id_editora) {
+        this.id_editora = id_editora;
+    }
+    
+    
+
+    public Editora(String nome) {
+        this.nome = nome;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }    
+}
+```
+
+#### Leitor
+```
+package model;
+
+import java.sql.Date;
+
+public class Leitor {
+    
+    private int id_leitor;
+    private String nome;
+    private Date dataNascimento;
+    private String cpf;
+    private String telefone;
+    private String email;
+    private String rua;
+    private String numero;
+    private String bairro;
+    private String cidade;
+    private String uf;
+    private String cep;
+    private int id_login;
+    
+    
+    public Leitor(){
+        
+
+    }
+
+    public Leitor(int id_leitor, String nome, Date dataNascimento, String cpf, String telefone, String email, String rua, String numero, String bairro, String cidade, String uf, String cep, int id_login) {
+        this.id_leitor = id_leitor;
+        this.nome = nome;
+        this.dataNascimento = dataNascimento;
+        this.cpf = cpf;
+        this.telefone = telefone;
+        this.email = email;
+        this.rua = rua;
+        this.numero = numero;
+        this.bairro = bairro;
+        this.cidade = cidade;
+        this.uf = uf;
+        this.cep = cep;
+        this.id_login = id_login;
+    }
+
+    public int getId_leitor() {
+        return id_leitor;
+    }
+
+    public void setId_leitor(int id_leitor) {
+        this.id_leitor = id_leitor;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public Date getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public void setDataNascimento(Date dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getRua() {
+        return rua;
+    }
+
+    public void setRua(String rua) {
+        this.rua = rua;
+    }
+
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
+    public String getBairro() {
+        return bairro;
+    }
+
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
+    }
+
+    public String getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    public String getUf() {
+        return uf;
+    }
+
+    public void setUf(String uf) {
+        this.uf = uf;
+    }
+
+    public String getCep() {
+        return cep;
+    }
+
+    public void setCep(String cep) {
+        this.cep = cep;
+    }
+
+    public int getId_login() {
+        return id_login;
+    }
+
+    public void setId_login(int id_login) {
+        this.id_login = id_login;
+    }    
+}
+```
+
+#### Livro
+```
+package model;
+
+import java.util.ArrayList;
+
+public class Livro {
+    
+    private String titulo;
+    private String autor;
+    private String editora;
+    private String anoedicao;
+    private int volume;
+    //private ArrayList<Autor> listaAutor = new ArrayList<Autor>();
+   // private ArrayList<Editora> listaEditora = new ArrayList<Editora>();
+
+    public Livro(String titulo, String autor, String editora, String anoedicao, int volume) {
+        this.titulo = titulo;
+        this.autor = autor;
+        this.editora = editora;
+        this.anoedicao = anoedicao;
+        this.volume = volume;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public String getAutor() {
+        return autor;
+    }
+
+    public void setAutor(String autor) {
+        this.autor = autor;
+    }
+
+    public String getEditora() {
+        return editora;
+    }
+
+    public void setEditora(String editora) {
+        this.editora = editora;
+    }
+
+    public String getAnoedicao() {
+        return anoedicao;
+    }
+
+    public void setAnoedicao(String anoedicao) {
+        this.anoedicao = anoedicao;
+    }
+
+    public int getVolume() {
+        return volume;
+    }
+
+    public void setVolume(int volume) {
+        this.volume = volume;
+    }  
+}
+```
+#### Login
+```
+package model;
+
+public class Login {
+    
+    private int id_login;
+    private String login;
+    private String senha;
+    
+    public Login (){
+        
+    }
+
+    public Login(int id_login, String login, String senha) {
+        this.id_login = id_login;
+        this.login = login;
+        this.senha = senha;
+    }
+
+    public int getId_login() {
+        return id_login;
+    }
+
+    public void setId_login(int id_login) {
+        this.id_login = id_login;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    
+    
+}
+```
+
+#### Usuário
+```
+package model;
+
+public class Usuario {
+    
+    private String nome;
+    private String senha;
+    private String tipo;
+    
+     public Usuario(){
+         
+     }
+
+    public Usuario(String nome, String senha, String tipo) {
+        this.nome = nome;
+        this.senha = senha;
+        this.tipo = tipo;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }    
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
