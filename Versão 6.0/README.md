@@ -597,396 +597,386 @@ Responsável por realizar consultas de devoluções cadastradas no banco de dado
 
 ### Classes da camada Controller
 
-#### Autor
+#### AutorDAO
 
 ```
-package model;
+package controller;
 
-public class Autor {
+//import com.sun.jndi.ldap.Connection;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import model.Autor;
+
+public class AutorDAO {
     
-    private int id_autor;
-    private String nome;
-    private int id_login;
+    private final Connection con;
+    private PreparedStatement cmd;
     
-    public Autor(){
+    public AutorDAO(){
+    
+       //ABRIR CONEXÃO COM O BANCO DE DADOS
+       this.con = ConexaoBD.Conectar();
+   }
+    
+    public int inserir(Autor a){
+        try {
+            String sql = "insert into autor (nome, id_login) values (?,2)";
+            
+            cmd = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);// REFERENCIA A CONEXÃO
+            
+            cmd.setString(1, a.getNome());
+            //cmd.setInt(2, a.getId_login());
+            
+            if(cmd.executeUpdate() > 0){
+                ResultSet rs = cmd.getGeneratedKeys();
+                return (rs.next()) ? rs.getInt(1): -1;
+            }else{
+                return -1;
+            }
+            
+        } catch (SQLException e) {
+            System.out.println("ERRO SQL" + e.getMessage());
+        }finally{
+        ConexaoBD.Desconectar(con);//FECHAR CONEXÃO
+    }
+        return 0;
         
     }
-
-    public Autor(int id_autor, String nome, int id_login) {
-        this.id_autor = id_autor;
-        this.nome = nome;
-        this.id_login = id_login;
+    
+     public void alterar(Autor a) {
+        String sql = "UPDATE autor SET nome = ? where = id_autor = ?";// não sei como fazer para chamar o id_editora
+       
+        try (PreparedStatement preparedStatement = con.prepareStatement(sql)) {
+            preparedStatement.setString(1, a.getNome());
+            preparedStatement.setInt(2, a.getId_autor());
+            
+           
+            preparedStatement.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
-
-    public int getId_autor() {
-        return id_autor;
+    
+    public void excluir(Autor a) {
+        String sql = "delete from autor where nome = ?";
+        try (PreparedStatement preparedStatement = con.prepareStatement(sql)) {
+            preparedStatement.setString(1, a.getNome());
+            
+            preparedStatement.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
-
-    public void setId_autor(int id_autor) {
-        this.id_autor = id_autor;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public int getId_login() {
-        return id_login;
-    }
-
-    public void setId_login(int id_login) {
-        this.id_login = id_login;
-    }   
 }
 ```
 
-#### Editora
+#### EditoraDAO
 
 ```
-package model;
+package controller;
 
-public class Editora {
+import java.sql.*;
+import model.Editora;
+
+
+public class EditoraDAO {
     
-    private String nome;
-    private int id_editora;
+    private final Connection con = ConexaoBD.Conectar();
     
-    public Editora(){
+ public void cadastrar(Editora editora) {
+        String sql = "insert into editora (nome)values(?)";
+        try (PreparedStatement preparestatement = con.prepareStatement(sql)) {
+
+            preparestatement.setString(1, editora.getNome()); 
+            //executando comando sql
+            preparestatement.execute();
+            preparestatement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+    public void alterar(Editora editora) {
+        String sql = "UPDATE editora SET nome = ? WHERE id_editora = ?";// não sei como fazer para chamar o id_editora
+       
+        try (PreparedStatement preparedStatement = con.prepareStatement(sql)) {
+            preparedStatement.setString(1, editora.getNome());
+            preparedStatement.setInt(2, editora.getId_editora());
+            
+           
+            preparedStatement.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void excluir(Editora editora) {
+        String sql = "delete from editora where nome = ?";
+        try (PreparedStatement preparedStatement = con.prepareStatement(sql)) {
+            preparedStatement.setString(1, editora.getNome());
+            preparedStatement.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+#### LeitorDAO
+
+```
+package controller;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+//import java.text.SimpleDateFormat;
+import model.Leitor;
+
+public class LeitorDAO {
+    
+    private final Connection con = ConexaoBD.Conectar();
+    //SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy"); 
+    
+ public void cadastrar(Leitor leitor) {
+        String sql = "insert into leitor (nome, cpf, data_nascimento, telefone, email, rua, numero, bairro, cidade, cep, uf, id_login) \n" +
+"VALUES (? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,2)";
         
-    }
+        try (PreparedStatement preparestatement = con.prepareStatement(sql)) {
 
-    public int getId_editora() {
-        return id_editora;
-    }
+            preparestatement.setString(1, leitor.getNome()); 
+            preparestatement.setString(2, leitor.getCpf());
+            preparestatement.setDate(3, leitor.getDataNascimento());//converter
+            preparestatement.setString(4, leitor.getTelefone());
+            preparestatement.setString(5, leitor.getEmail());
+            preparestatement.setString(6, leitor.getRua());
+            preparestatement.setString(7, leitor.getNumero());
+            preparestatement.setString(8, leitor.getBairro());
+            preparestatement.setString(9, leitor.getCidade());
+            preparestatement.setString(10, leitor.getCep());
+            preparestatement.setString(11, leitor.getUf());
+            //preparestatement.setInt(12, leitor.getId_login());
+            
+            //executando comando sql
+            preparestatement.execute();
+            preparestatement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
-    public void setId_editora(int id_editora) {
-        this.id_editora = id_editora;
+    }
+    public void alterar(Leitor leitor) {
+        String sql = "UPDATE leitor SET nome = ?, cpf=?,data_nascimento= ?, telefone= ?,email= ?,rua= ?,numero= ?,bairro= ?,cidade=? ,cep= ?,uf=?, id_login=2 \n" +
+"WHERE  id_leitor = ?";
+        try (PreparedStatement preparestatement = con.prepareStatement(sql)) {
+             preparestatement.setString(1, leitor.getNome()); 
+            preparestatement.setString(2, leitor.getCpf());
+            preparestatement.setDate(3, leitor.getDataNascimento());//converter
+            preparestatement.setString(4, leitor.getTelefone());
+            preparestatement.setString(5, leitor.getEmail());
+            preparestatement.setString(6, leitor.getRua());
+            preparestatement.setString(7, leitor.getNumero());
+            preparestatement.setString(8, leitor.getBairro());
+            preparestatement.setString(9, leitor.getCidade());
+            preparestatement.setString(10, leitor.getCep());
+            preparestatement.setString(11, leitor.getUf());
+            preparestatement.setInt(13, leitor.getId_leitor());
+            
+           
+            preparestatement.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
     
-    
-
-    public Editora(String nome) {
-        this.nome = nome;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }    
-}
-```
-
-#### Leitor
-```
-package model;
-
-import java.sql.Date;
-
-public class Leitor {
-    
-    private int id_leitor;
-    private String nome;
-    private Date dataNascimento;
-    private String cpf;
-    private String telefone;
-    private String email;
-    private String rua;
-    private String numero;
-    private String bairro;
-    private String cidade;
-    private String uf;
-    private String cep;
-    private int id_login;
-    
-    
-    public Leitor(){
+    public void excluir(Leitor leitor) {
+        String sql = "DELETE FROM leitor WHERE id_leitor = ?";
         
-
+        try (PreparedStatement preparedStatement = con.prepareStatement(sql)) {
+            preparedStatement.setInt(1, leitor.getId_leitor());
+            preparedStatement.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
-
-    public Leitor(int id_leitor, String nome, Date dataNascimento, String cpf, String telefone, String email, String rua, String numero, String bairro, String cidade, String uf, String cep, int id_login) {
-        this.id_leitor = id_leitor;
-        this.nome = nome;
-        this.dataNascimento = dataNascimento;
-        this.cpf = cpf;
-        this.telefone = telefone;
-        this.email = email;
-        this.rua = rua;
-        this.numero = numero;
-        this.bairro = bairro;
-        this.cidade = cidade;
-        this.uf = uf;
-        this.cep = cep;
-        this.id_login = id_login;
-    }
-
-    public int getId_leitor() {
-        return id_leitor;
-    }
-
-    public void setId_leitor(int id_leitor) {
-        this.id_leitor = id_leitor;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public Date getDataNascimento() {
-        return dataNascimento;
-    }
-
-    public void setDataNascimento(Date dataNascimento) {
-        this.dataNascimento = dataNascimento;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getRua() {
-        return rua;
-    }
-
-    public void setRua(String rua) {
-        this.rua = rua;
-    }
-
-    public String getNumero() {
-        return numero;
-    }
-
-    public void setNumero(String numero) {
-        this.numero = numero;
-    }
-
-    public String getBairro() {
-        return bairro;
-    }
-
-    public void setBairro(String bairro) {
-        this.bairro = bairro;
-    }
-
-    public String getCidade() {
-        return cidade;
-    }
-
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
-    }
-
-    public String getUf() {
-        return uf;
-    }
-
-    public void setUf(String uf) {
-        this.uf = uf;
-    }
-
-    public String getCep() {
-        return cep;
-    }
-
-    public void setCep(String cep) {
-        this.cep = cep;
-    }
-
-    public int getId_login() {
-        return id_login;
-    }
-
-    public void setId_login(int id_login) {
-        this.id_login = id_login;
-    }    
+    
+    
 }
 ```
 
-#### Livro
+#### LivroDAO
+
 ```
-package model;
+package controller;
 
-import java.util.ArrayList;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import model.Livro;
 
-public class Livro {
+public class LivroDAO {
     
-    private String titulo;
-    private String autor;
-    private String editora;
-    private String anoedicao;
-    private int volume;
-    //private ArrayList<Autor> listaAutor = new ArrayList<Autor>();
-   // private ArrayList<Editora> listaEditora = new ArrayList<Editora>();
-
-    public Livro(String titulo, String autor, String editora, String anoedicao, int volume) {
-        this.titulo = titulo;
-        this.autor = autor;
-        this.editora = editora;
-        this.anoedicao = anoedicao;
-        this.volume = volume;
-    }
-
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
-    public String getAutor() {
-        return autor;
-    }
-
-    public void setAutor(String autor) {
-        this.autor = autor;
-    }
-
-    public String getEditora() {
-        return editora;
-    }
-
-    public void setEditora(String editora) {
-        this.editora = editora;
-    }
-
-    public String getAnoedicao() {
-        return anoedicao;
-    }
-
-    public void setAnoedicao(String anoedicao) {
-        this.anoedicao = anoedicao;
-    }
-
-    public int getVolume() {
-        return volume;
-    }
-
-    public void setVolume(int volume) {
-        this.volume = volume;
-    }  
-}
-```
-#### Login
-```
-package model;
-
-public class Login {
+     private final Connection con = ConexaoBD.Conectar();
     
-    private int id_login;
-    private String login;
-    private String senha;
+ public void cadastrar(Livro livro) {
+        //String sql = "insert into livro (nome, id_login) values(?,2)";
+     String sql = "insert into livro (titulo, volume, ano, id_login, id_editora,id_autor) values (?, ?,?,2,?,?)";
+     //id_login iserir no direto do comando
+        try (PreparedStatement preparestatement = con.prepareStatement(sql)) {
+
+            preparestatement.setString(1, livro.getTitulo());
+            preparestatement.setInt(2, livro.getVolume());
+            preparestatement.setString(3, livro.getAnoedicao());
+            preparestatement.setString(5, livro.getAutor());
+            preparestatement.setString(6, livro.getEditora());
+            //executando comando sql
+            preparestatement.execute();
+            preparestatement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+    public void alterar(Livro livro) {
+        String sql = "update livro set titulo = ? AND autor ? AND editora = ? AND ano = ? AND volume = ?";// não sei como fazer para chamar o id_editora
+      
+        try (PreparedStatement preparestatement = con.prepareStatement(sql)) {
+            preparestatement.setString(1, livro.getTitulo());
+            preparestatement.setString(2, livro.getAutor());
+            preparestatement.setString(3, livro.getEditora());
+            preparestatement.setString(4, livro.getAnoedicao());
+            preparestatement.setInt(5, livro.getVolume());
+           
+            preparestatement.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
     
-    public Login (){
+    public void excluir(Livro livro) {
+        String sql = "DELETE from livro WHERE titulo = ?";
         
+        try (PreparedStatement preparedStatement = con.prepareStatement(sql)) {
+            preparedStatement.setString(1, livro.getTitulo());
+            preparedStatement.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
-
-    public Login(int id_login, String login, String senha) {
-        this.id_login = id_login;
-        this.login = login;
-        this.senha = senha;
-    }
-
-    public int getId_login() {
-        return id_login;
-    }
-
-    public void setId_login(int id_login) {
-        this.id_login = id_login;
-    }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
-
     
     
 }
 ```
 
-#### Usuário
+#### UsuarioDAO
+
 ```
-package model;
+package controller;
 
-public class Usuario {
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import model.Usuario;
+
+public class UsuarioDAO {
     
-    private String nome;
-    private String senha;
-    private String tipo;
+    private final Connection con = ConexaoBD.Conectar();
     
-     public Usuario(){
-         
-     }
+ public void cadastrar(Usuario usuario) {
+        String sql = "INSERT INTO usuario (nome, senha, tipo, id_login) values (?,?,?,2)";
+     //id_login iserir no direto do comando
+        try (PreparedStatement preparestatement = con.prepareStatement(sql)) {
 
-    public Usuario(String nome, String senha, String tipo) {
-        this.nome = nome;
-        this.senha = senha;
-        this.tipo = tipo;
+            preparestatement.setString(1, usuario.getNome());
+            preparestatement.setString(2, usuario.getSenha());
+            preparestatement.setString(3, usuario.getTipo());
+            //executando comando sql
+            preparestatement.execute();
+            preparestatement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
     }
-
-    public String getNome() {
-        return nome;
+ 
+    public void excluir(Usuario usuario) {
+        String sql = "DELETE FROM usuario WHERE nome = ?";
+        
+        try (PreparedStatement preparedStatement = con.prepareStatement(sql)) {
+            preparedStatement.setString(1, usuario.getNome());
+            preparedStatement.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
-
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }    
+    
+    
 }
+```
+#### ConexãoDB
+
+```
+package controller;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+//import java.sql.*;
+import javax.swing.JOptionPane;
+
+public class ConexaoBD {
+    
+    //Detalhes da Conexão    
+    private static final String DATABASE="biblioteca";
+    private static final String HOST="jdbc:mysql://localhost:3306/biblioteca";
+    private static final String DRIVER="com.mysql.jdbc.Driver";
+    //Para tirar erro de SSL em alguns casos em que tem varios Bancos e Certificados
+    private static final String URL="jdbc:mysql://localhost:3306/biblioteca?useTimezone=true&serverTimezone=UTC&useSSL=false";
+    private static final String USR="root";
+    private static final String PWD="";
+//Metodo conectar    
+    public static Connection Conectar(){
+        try{
+            Class.forName(DRIVER);
+            return DriverManager.getConnection(URL, USR, PWD);
+        } 
+        catch (ClassNotFoundException | SQLException e) {
+            System.out.println("Ocorreu falha na conexão com Banco de Dados, acione equipe de suporte ! ");
+            System.out.println("Falha ao Conectar com Banco de Dados: " + "ERRO RETORNADO: " + e.getMessage());
+                    JOptionPane.showMessageDialog(null,"Falha de Comunicação com Banco de Dados", "WARNING: Conexão com Banco", JOptionPane.WARNING_MESSAGE);
+            return null;
+        }
+    }
+//Método Desconectar    
+    public static void Desconectar (Connection con){
+        try{
+            if (con != null){
+                con.close();
+            }
+        }
+        catch (SQLException e){
+                System.out.println("ERRO: " + e.getMessage());
+               }
+        }  
+//Metodo Main 
+    public static void main(String[] args){
+        if (Conectar() != null){
+            System.out.println("Conexão realizada com sucesso!");
+            System.out.println("Conectado ao Banco de Dados Bibliotexa - Mysql");
+            JOptionPane.showMessageDialog(null,"Operação realizada com sucesso !", "CONEXÃO COM SUCESSO", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }      
+    
+}
+```
+## Classes da camada Model.
+
+#### Classe Autor
+
+```
+
+
+
