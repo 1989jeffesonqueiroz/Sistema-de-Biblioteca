@@ -1,4 +1,4 @@
-## Documentação de Projeto de Software Versão 4.0
+## Documentação de Projeto de Software Versão 6.0
 
 ## Área de negócio do Sistema
 O presente projeto é voltado para a área educacional, em específico para as bibliotecas. O intuito é proporcionar o gerenciamento do empréstimo de livros de forma similar ao software PERGAMUM já existente nas universidades públicas do estado.
